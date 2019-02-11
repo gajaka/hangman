@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Hangman - please register as user</title>
+    <link rel="stylesheet" type="text/css" href="static/js/elem-visible.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='js/register.js') }}">
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hangman registration page</h1>
+      <br>
+      <form id="registerForm" target="submission_reg.frame">
+         <input id="username" type="text" placeholder="Username" name="username">
+         <input id="password" type="password" placeholder="Password" name="password">
+         <button class="bttn_default">Register</button>
+        <iframe name="submission_reg.frame" hidden></iframe>
+        <p id="message"> </p>
+      </form>
+      <p><a id="register_login" href="/login">Go to login</a></p>
+
+    </div>
+  </body>
+</html>

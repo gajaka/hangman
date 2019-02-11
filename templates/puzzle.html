@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="static/js/elem-visible.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/puzzle.js"></script>
+    <script src="/static/js/cookie_handler.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Hangman</h1>
+    <br>
+    <form id="puzzleForm">
+        <table id="puzzle_table" class="gfg">
+            <tr>
+                <td class="geeks">Puzzle</td>
+                <td class="geeks"></td>
+            </tr>
+            <tr>
+                <td class="geeks">Score</td>
+                <td class="geeks"></td>
+            </tr>
+            <tr>
+                <td class="geeks">Threshold</td>
+                <td class="geeks"></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+
+<form id="choose_form" action="/choose"  target="submission_choose.frame">
+     <iframe name="submission_choose.frame" hidden></iframe>
+    <input id="choose" type="hidden" name="choose" method="post"/>
+          <button_link id="choosebttn">Choose</button_link>
+</form>
+</div>
+
+<form id="puzzle_f" action="/puzzle"  target="submission_puzzle.frame" onkeypress="return event.keyCode != 13;">
+    <input id="letter_coice" maxlength="1" type="text"  placeholder="Enter a letter">
+     <iframe name="submission_puzzle.frame" hidden></iframe>
+          <button_link id="puzzlebttn">Ok</button_link>
+          <p id="message"> </p>
+</form>
+ <form id="logout_form" action="/logout" method="post">
+          <input id="logout" type="hidden" name="logout"/>
+          <button_link id="logoutbttn">Exit</button_link>
+      </form>
+<p><a id="login_link" href="/login">Login</a></p>
+</body>
+</html>

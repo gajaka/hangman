@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Hangman-login</title>
+    <link rel="stylesheet" type="text/css" href="static/js/elem-visible.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/login.js">
+    </script>
+    <script src="/static/js/cookie_handler.js">
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hangman login</h1>
+      <br>
+      <form id="loginForm"  target="submission.frame">
+        <input id="username" type="text" placeholder="Username" name="username">
+         <input id="password" type="password" placeholder="Password" name="password">
+
+        <button class="bttn_default">Login</button>
+        <iframe name="submission.frame" hidden></iframe>
+        <iframe name="logout.frame" hidden></iframe>
+        <p id="message"> </p>
+        <p><a id="register_login" href="/register" method="post">Register</a></p>
+        <p><a id="choose" href="/choose">Start the game</a></p>
+      </form>
+      <form id="logout_form" action="/logout" method="post">
+          <input id="logout" type="hidden" name="logout" method="post"/>
+          <button_link id="logoutbttn">Logout</button_link>
+      </form>
+
+
+    </div>
+  </body>
+</html>

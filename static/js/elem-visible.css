@@ -1,0 +1,35 @@
+button_link,a {
+    border: 0;
+    padding: 0;
+    display: inline;
+    background: none;
+    text-decoration: underline;
+    color: blue;
+}
+button_link:hover {
+    cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+}
+th {background-color:green;
+    Color:white;
+}
+th, td {
+  width:150px;
+  text-align:left;
+    padding:5px;
+    font-size: 24px;
+}
+.geeks {
+  border-right:hidden;
+}
+.gfg {
+  border-collapse:separate;
+  border-spacing:0 15px;
+}
+h1 {
+  color:green;
+}
+
+
