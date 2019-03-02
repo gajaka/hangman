@@ -42,7 +42,8 @@ def create_tables():
 
 user_routes = [
     '/user/<int:user_id>',
-    '/deluser/<int:user_id>'
+    '/deluser/<int:user_id>',
+    '/updpwd/<int:user_id>'
 ]
 
 api.add_resource(UserRegister, '/register')
