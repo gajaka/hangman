@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager
 from database import database
 from resources.user import UserRegister, UserLogin, UserLogout, User
 from resources.puzzle import Puzzle, RandomChooser
+from resources.score import Score
 from invalid_token import invalid_token
 from os import urandom
 
@@ -50,6 +51,7 @@ api.add_resource(User, *user_routes)
 api.add_resource(UserLogout, '/logout')
 api.add_resource(RandomChooser, '/choose')
 api.add_resource(Puzzle, '/puzzle/<string:key>')
+api.add_resource(Score, '/score/<string:user_id>')
 
 
 @app.route('/')
