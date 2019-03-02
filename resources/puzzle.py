@@ -14,7 +14,7 @@ class RandomChooser(Resource):
         word = random.choice(words)
         PuzzleHandler.create_dict(word)
         puzzle = " ".join(["_"] * len(word))
-        return {'score': 0, 'threshold': 0, 'puzzle': puzzle},200
+        return {'score': 0, 'threshold': 0, 'puzzle': puzzle}, 200
 
 
 class Puzzle(Resource):
