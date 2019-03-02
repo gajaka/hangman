@@ -22,15 +22,12 @@ class UserModel(database.Model):
         }
 
     def to_json_score(self):
-        def fold_left(func, acc, iterable):
-            return reduce(func, iterable, acc) # it can be a lambda expression
-
         lst = [p.to_json().get('score') for p in self.puzzles.all()]
         return {
             'id': self.id,
             'username': self.username,
             'scores': lst,
-            'total_score': fold_left(add, 0, lst)
+            'total_score': reduce(add, 0, lst)  # fold_left
         }
 
     @classmethod
