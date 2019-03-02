@@ -78,3 +78,12 @@ class User(Resource):
             return {'message': "User Not Found"}, 404
         user.delete_from_db()
         return {'message': "User deleted"}, 200
+
+    @classmethod
+    def put(cls, user_id: int):
+        user = UserModel.find_by_id(user_id)
+        if not user:
+            return {'message': "User Not Found"}, 404
+        data = user_parser.parse_args()
+        user.update_to_db(data['password'])
+        return {'message': "User password updated"}, 200
