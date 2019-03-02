@@ -1,4 +1,6 @@
 from database import database
+from functools import reduce
+from operator import add
 
 
 class UserModel(database.Model):
@@ -7,6 +9,7 @@ class UserModel(database.Model):
     id = database.Column(database.Integer, primary_key=True)
     username = database.Column(database.String(80))
     password = database.Column(database.String(80))
+    puzzles = database.relationship('PuzzleModel', lazy='dynamic')
 
     def __init__(self, username, password):
         self.username = username
@@ -16,6 +19,18 @@ class UserModel(database.Model):
         return {
             'id': self.id,
             'username': self.username
+        }
+
+    def to_json_score(self):
+        def fold_left(func, acc, iterable):
+            return reduce(func, iterable, acc) # it can be a lambda expression
+
+        lst = [p.to_json().get('score') for p in self.puzzles.all()]
+        return {
+            'id': self.id,
+            'username': self.username,
+            'scores': lst,
+            'total_score': fold_left(add, 0, lst)
         }
 
     @classmethod
