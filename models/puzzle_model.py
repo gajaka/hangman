@@ -14,9 +14,19 @@ class PuzzleModel(database.Model):
         self.score = score
         self.user_id = user_id
 
+    def to_json(self):
+        return {
+            'id': self.user_id,
+            'score': self.score
+        }
+
     @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()
+
+    @classmethod
+    def find_all_by_id(cls, _user_id):
+        return cls.query.filter_by(user_id=_user_id)
 
     @classmethod
     def find_all(cls):
