@@ -12,4 +12,5 @@ class Score(Resource):
         if user:
             return user.to_json_score()
         else:
-            return {'message': "User with an user_id = {} does not exist.".format(user_id)}, 404
+            return {'message': "User with an user_id = {} "
+                               "does not exist.".format(user_id)}, 404
