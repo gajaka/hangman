@@ -27,7 +27,7 @@ class UserModel(database.Model):
             'id': self.id,
             'username': self.username,
             'scores': lst,
-            'total_score': reduce(add, 0, lst)  # fold_left
+            'total_score': reduce(add, lst, 0)  # fold_left
         }
 
     @classmethod
