@@ -42,6 +42,10 @@ class UserModel(database.Model):
         database.session.add(self)
         database.session.commit()
 
+    def update_to_db(self, pwd):
+        self.password = pwd
+        database.session.commit()
+
     def delete_from_db(self):
         database.session.delete(self)
         database.session.commit()
