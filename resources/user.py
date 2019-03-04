@@ -79,8 +79,8 @@ class User(Resource):
         user.delete_from_db()
         return {'message': "User deleted"}, 200
 
-    @classmethod
-    def put(cls, user_id: int):
+    @jwt_required
+    def put(self, user_id: int):
         user = UserModel.find_by_id(user_id)
         if not user:
             return {'message': "User Not Found"}, 404
