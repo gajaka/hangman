@@ -43,7 +43,8 @@ def create_tables():
 user_routes = [
     '/user/<int:user_id>',
     '/deluser/<int:user_id>',
-    '/updpwd/<int:user_id>'
+    '/updpwd/<int:user_id>',
+    '/user/<string:username>'
 ]
 
 api.add_resource(UserRegister, '/register')
@@ -76,7 +77,7 @@ def choose():
     resp.headers.set('Authorisation', "Bearer " + session['access_token'])
     return resp
 
-
+database.init_app(app)
 if __name__ == '__main__':
-    database.init_app(app)
+
     app.run(port=5000, debug=True)
