@@ -77,7 +77,7 @@ def choose():
     resp.headers.set('Authorisation', "Bearer " + session['access_token'])
     return resp
 
-database.init_app(app)
-if __name__ == '__main__':
 
+if __name__ == '__main__':
+    database.init_app(app)
     app.run(port=5000, debug=True)
