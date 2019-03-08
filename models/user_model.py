@@ -1,6 +1,4 @@
 from database import database
-from functools import reduce
-from operator import add
 
 
 class UserModel(database.Model):
