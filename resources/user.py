@@ -7,6 +7,7 @@ from flask_jwt_extended import (
 from models.user_model import UserModel
 from invalid_token import invalid_token
 from flask import session
+from werkzeug.routing import BaseConverter, ValidationError
 
 user_parser = reqparse.RequestParser()
 
@@ -67,6 +68,13 @@ class User(Resource):
     @classmethod
     def get(cls, user_id: int):
         user = UserModel.find_by_id(user_id)
+        if not user:
+            return {'message': "User Not Found"}, 404
+        return user.to_json(), 200
+
+    @classmethod
+    def get(cls, username: str):
+        user = UserModel.find_by_username(username)
         if not user:
             return {'message': "User Not Found"}, 404
         return user.to_json(), 200
